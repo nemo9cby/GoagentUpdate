@@ -269,6 +269,7 @@ namespace GoagentUpdate
             if (!Directory.Exists(GoagentPath))
             {
                 ShowMessage("路径 " + GoagentPath + " 不存在");
+                ShowMessage("可能需要手工创建这个目录");
                 ShowMessage("操作终止");
                 return;
             }

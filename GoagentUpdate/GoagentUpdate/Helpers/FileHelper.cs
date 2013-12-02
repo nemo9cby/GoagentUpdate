@@ -87,9 +87,15 @@ namespace sherlock99.Toolkit
             //判断传入路径是否合法
             if (source_url.Length == 0 || target_url.Length == 0)
                 return 0;
-
+            try
+            {
+                flag = RecursiveCopy(source_url, target_url, overwrite);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             //拷贝文件
-            flag = RecursiveCopy(source_url, target_url, overwrite);
 
             return flag;
         }
@@ -151,7 +157,7 @@ namespace sherlock99.Toolkit
             }
             catch
             {
-                return -2;
+                throw;
             }
             return 1;
         }
