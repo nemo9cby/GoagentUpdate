@@ -68,7 +68,10 @@ namespace GoagentUpdate
                 }
                 else
                 {
-                    ShowMessage("这可能不是99创建的文件夹，请确认");
+                    if (!isNewInstall)
+                    {
+                        ShowMessage("这可能不是99创建的文件夹，请确认");
+                    }
                 }
                 button1.Enabled = true;
             }
@@ -355,6 +358,13 @@ namespace GoagentUpdate
             {
                 ShowMessage("启动Goagent失败");
                 ShowMessage(ex.Message);
+            }
+
+            if (isNewInstall)
+            {
+                ShowMessage("");
+                ShowMessage("Goagent客户端部署完成");
+                ShowMessage("请联系99 协助安装浏览器插件");
             }
 
         }
