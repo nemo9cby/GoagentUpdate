@@ -1,6 +1,6 @@
 GoagentUpdate
 =============
-
+        
 GoagentUpdate
 
 Goagent自动部署程序
@@ -11,7 +11,7 @@ Goagent自动部署程序
 
 程序请求管理员权限是因为需要自动导入证书
 
-
+######[最新版本下载地址](https://raw.github.com/sherlock99/GoagentUpdate/master/GoagentUpdate.exe)
 
 #### ChangeLog ####
 
@@ -25,3 +25,4 @@ Goagent自动部署程序
 
 #### TodoList ####
 - [ ] 异常处理
+- [ ] 修改程序图标
