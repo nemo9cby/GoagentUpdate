@@ -126,16 +126,20 @@ namespace GoagentUpdate
         {
             if (Exist360())
             {
+                ShowMessage("");
                 ShowMessage("360系列软件会阻止自动更新程序的正常运行...");
                 ShowMessage("退出所有360软件后重试");
                 ShowMessage("操作终止");
+                button1.Enabled = false;
                 return;
             }
             if (!CheckSource())
             {
+                ShowMessage("");
                 ShowMessage("未检测到原始Goagent文件夹");
                 ShowMessage("操作终止");
-                //return;
+                button1.Enabled = false;
+                return;
             }
 
             List<string> paths = GetAllGoagentDirectories();
@@ -168,7 +172,7 @@ namespace GoagentUpdate
                 }
                 else
                 {
-                    comboBox1.Text = "存在多个Goagent路径，请选择正确的路径";
+                    comboBox1.Text = "存在多个Goagent路径，请从下拉列表选择正确的路径";
                     ShowMessage("存在多个Goagent路径，请选择正确的路径");
                     button1.Enabled = false;
                 }
@@ -269,8 +273,11 @@ namespace GoagentUpdate
             {
                 Directory.CreateDirectory(GoagentPath);
             }
+
+            // 保证这里是个已经存在的路径 减小删除风险
             if (!Directory.Exists(GoagentPath))
             {
+                ShowMessage("");
                 ShowMessage("路径 " + GoagentPath + " 不存在");
                 ShowMessage("可能需要手工创建这个目录");
                 ShowMessage("操作终止");
