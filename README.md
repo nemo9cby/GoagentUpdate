@@ -14,6 +14,9 @@ Goagent自动部署程序
 ######[最新版本下载地址](https://raw.github.com/sherlock99/GoagentUpdate/master/GoagentUpdate.exe)(2013/12/02)
 
 #### ChangeLog ####
+* v1.2.2 bug fix
+    * 更改下拉列表控件textChange事件监听方法
+
 * v1.2.1 bug fix
     * 修复下拉列表控件textChange事件
 
