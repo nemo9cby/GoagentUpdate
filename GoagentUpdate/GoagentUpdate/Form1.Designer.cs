@@ -116,6 +116,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(315, 20);
             this.comboBox1.TabIndex = 10;
+            this.comboBox1.TextChanged += comboBox1_TextChanged;
             // 
             // Form1
             // 
