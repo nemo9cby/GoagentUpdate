@@ -340,12 +340,12 @@ namespace GoagentUpdate
             {
                 if (checkBox1.Checked)
                 {
-                    CmdHelper.ExecCommand(string.Format("wscript {0}\\addto-startup.js {0}", GoagentPath));
+                    CmdHelper.ExecCommand(string.Format("wscript \"{0}\\addto-startup.js\" \"{0}\"", GoagentPath));
                     ShowMessage("设置开机自动启动成功");
                 }
                 else
                 {
-                    CmdHelper.ExecCommand(string.Format("wscript {0}\\delete-startup.js", GoagentPath));
+                    CmdHelper.ExecCommand(string.Format("wscript \"{0}\\delete-startup.js\"", GoagentPath));
                     ShowMessage("删除开机自动启动成功");
                 }
             }
