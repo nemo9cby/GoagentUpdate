@@ -16,6 +16,9 @@ Goagent自动部署程序
 
 
 #### ChangeLog ####
+* v1.3.1 fix path with spaces
+    * 修复部署路径中存在空格的情况
+
 * v1.3 update to 3.1.0
     * 更新版本到3.1.0
 
