@@ -338,7 +338,6 @@ namespace GoagentUpdate
             // 随机排列appid
             random_appid(GoagentPath);
 
-
             System.Threading.Thread.Sleep(250);
 
             // 设置开机自动启动
@@ -435,7 +434,6 @@ namespace GoagentUpdate
                         break;
                     }
                 }
-                
             }
             return numbers;
         }
