@@ -1,5 +1,6 @@
 ﻿using sherlock99.Toolkit;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GoagentUpdate
@@ -333,6 +335,9 @@ namespace GoagentUpdate
                 return;
             }
 
+            // 随机排列appid
+            random_appid(GoagentPath);
+
             System.Threading.Thread.Sleep(250);
 
             // 设置开机自动启动
@@ -374,6 +379,63 @@ namespace GoagentUpdate
                 ShowMessage("请联系99 协助安装浏览器插件");
             }
 
+        }
+
+        // 随机排列appid
+        private void random_appid(string GoagentPath)
+        {
+            StreamReader sr = new StreamReader(GoagentPath + "\\proxy.ini");
+            List<string> lines = new List<string>();
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine(); 
+                if (line.Contains("appid"))
+                {
+                    line = line.Replace("appid = ", "");
+                    List<string> appids = new List<string>();
+                    appids.AddRange(line.Split('|'));
+                    string tmp_line = "appid = ";
+                    List<int> numbers = GetRandomNumbers(0, appids.Count - 1);
+                    for (int i = 0; i < appids.Count; i++)
+                    {
+                        tmp_line += appids[numbers[i]] + "|";
+                    }
+                    line = tmp_line.TrimEnd('|');
+                }
+                lines.Add(line);
+            }
+            sr.Close();
+            StreamWriter sw = new StreamWriter(GoagentPath + "\\proxy.ini");
+            foreach (var line in lines)
+            {
+                sw.WriteLine(line);
+            }
+            sw.Close();
+        }
+
+        // 生成互不相同的随机数组
+        // 数组范围 [min, max]
+        private List<int> GetRandomNumbers(int min, int max)
+        {
+            Hashtable ht = new Hashtable();
+            List<int> numbers = new List<int>();
+            int count = max - min + 1;
+            for (int i = 0; i < count; i++)
+            {
+                while (true)
+                {
+                    Thread.Sleep(75);
+                    Random r = new Random(DateTime.Now.Millisecond);
+                    int num = r.Next(min, max + 1);
+                    if (!ht.ContainsKey(num))
+                    {
+                        numbers.Add(num);
+                        ht.Add(num, null);
+                        break;
+                    }
+                }
+            }
+            return numbers;
         }
 
         // 结束Goagent进程
