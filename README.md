@@ -12,10 +12,13 @@ Goagent自动部署程序
 程序请求管理员权限是因为需要自动导入证书
 
 
-####[最新版本下载地址](https://raw.github.com/sherlock99/GoagentUpdate/master/GoagentUpdate.exe)(2013/12/30)
+####[最新版本下载地址](https://raw.github.com/sherlock99/GoagentUpdate/master/GoagentUpdate.exe)(2014/6/12)
 
 
 #### ChangeLog ####
+* v1.5 update to 3.1.18
+    * 更新版本到3.1.18
+
 * v1.4 random appid
     * 随机appid的顺序 解决Over Quote(503)问题
     * 更新版本到3.1.2
