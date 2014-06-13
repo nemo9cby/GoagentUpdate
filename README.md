@@ -16,6 +16,9 @@ Goagent自动部署程序
 
 
 #### ChangeLog ####
+* v1.5.1 update config file
+    * 修复google主页不能打开问题
+
 * v1.5 update to 3.1.18
     * 更新版本到3.1.18
 
